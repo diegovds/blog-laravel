@@ -15,7 +15,7 @@ class Post extends Model
         'slug',
         'authorId',
         'title',
-        'content',
+        'body',
         'cover',
         'status',
     ];

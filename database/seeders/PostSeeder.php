@@ -27,7 +27,7 @@ class PostSeeder extends Seeder
         foreach (range(1, 20) as $i) {
             Post::create([
                 'title' => 'Post ' . $i,
-                'content' => 'Conteúdo do post número ' . $i,
+                'body' => 'Conteúdo do post número ' . $i,
                 'cover' => 'https://',
                 'status' => 'PUBLISHED',
                 'authorId' => 1,

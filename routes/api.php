@@ -60,3 +60,18 @@ Route::post('/auth/signin', function(Request $request) {
         'token' => $token,
     ]);
 });
+
+Route::post('/auth/verify', function(Request $request) {
+    $user = $request -> user();
+
+    $token = $user -> createToken($user -> id . '-' . $user -> email) -> plainTextToken;
+
+    return response() -> json([
+        'user' => [
+            'id' => $user -> id,
+            'name' => $user -> name,
+            'email' => $user -> email
+        ]
+    ]);
+
+}) -> middleware('auth:sanctum');

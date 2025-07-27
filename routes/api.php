@@ -25,10 +25,38 @@ Route::post('/auth/signup', function(Request $request) {
         'password' => Hash::make($request -> password),
     ]);
 
-    $returnData = [];
-    $returnData['user'] = $user;
-    $returnData['token'] = $user -> createToken($user -> id. '-' .$user -> email) -> plainTextToken;
+    $token = $user -> createToken($user -> id. '-' .$user -> email) -> plainTextToken;
 
-    return $returnData;
+    return response() -> json([
+        'user' => $user,
+        'token' => $token,
+    ], 201);
 
+});
+
+Route::post('/auth/signin', function(Request $request) {
+
+    // Validar os dados:
+
+    $request -> validate([
+        'email' => 'required|string|email',
+        'password' => 'required|string|min:6',
+    ]);
+
+    $user = User::where('email', $request -> email) -> first();
+
+    if (!$user || !Hash::check($request -> password, $user -> password)) {
+        return response() -> json(['error' => 'Falha de autenticação'], 401);
+    }
+
+    $token = $user -> createToken($user -> id . '-' . $user -> email) -> plainTextToken;
+
+    return response() -> json([
+        'user' => [
+            'id' => $user -> id,
+            'name' => $user -> name,
+            'email' => $user -> email
+        ],
+        'token' => $token,
+    ]);
 });

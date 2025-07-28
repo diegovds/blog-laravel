@@ -23,7 +23,7 @@ class AdminController extends Controller
             $pagesPosts[] = [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> created_at,
+                'createdAt' => $post -> createdAt,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,
@@ -52,7 +52,7 @@ class AdminController extends Controller
             'post' => [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> created_at,
+                'createdAt' => $post -> createdAt,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,
@@ -115,7 +115,7 @@ class AdminController extends Controller
             'post' => [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> created_at,
+                'createdAt' => $post -> createdAt,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,

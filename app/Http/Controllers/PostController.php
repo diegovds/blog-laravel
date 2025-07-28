@@ -19,7 +19,7 @@ class PostController extends Controller
             $pagesPosts[] = [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> created_at,
+                'createdAt' => $post -> createdAt,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,
@@ -45,7 +45,7 @@ class PostController extends Controller
             'post' => [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> created_at,
+                'createdAt' => $post -> createdAt,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,
@@ -80,7 +80,7 @@ class PostController extends Controller
             return [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> created_at,
+                'createdAt' => $post -> createdAt,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,

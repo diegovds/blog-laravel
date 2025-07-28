@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -22,7 +24,6 @@ class AdminController extends Controller
                 'id' => $post -> id,
                 'title' => $post -> title,
                 'createdAt' => $post -> created_at,
-                'cover' => $post -> cover,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,
@@ -52,7 +53,6 @@ class AdminController extends Controller
                 'id' => $post -> id,
                 'title' => $post -> title,
                 'createdAt' => $post -> created_at,
-                'cover' => $post -> cover,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,
@@ -75,5 +75,53 @@ class AdminController extends Controller
         $post -> delete();
 
         return response() -> json(['message' => 'Post deleted successfully'], 200);
+    }
+
+    public function createPost(Request $request) {
+        $user = $request -> user();
+
+        $request -> validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
+            'status' => 'in:PUBLISHED,DRAFT',
+            'tags' => 'string|max:255'
+        ]);
+
+        $post = new Post();
+
+        if (!$request -> has('status')) {
+            $post -> status = 'DRAFT';
+        }
+
+        $post -> title = $request -> input('title');
+        $post -> body = $request -> input('body');
+        $post -> authorId = $user -> id;
+
+        // Gerar slug com base no title
+        $post -> slug = Str::slug($post -> title) . '-' . time();
+
+        $post -> save();
+
+        if($request -> has('tags')) {
+            $tags = explode(',', $request -> input('tags'));
+            foreach($tags as $tag){
+                $tag = trim($tag);
+                $tagModel = Tag::firstOrCreate(['name' => $tag]);
+                $post -> tags() -> attach($tagModel -> id);
+            }
+        }
+
+        return response() -> json([
+            'post' => [
+                'id' => $post -> id,
+                'title' => $post -> title,
+                'createdAt' => $post -> created_at,
+                'authorName' => $post -> author -> name,
+                'tags' => $post -> tags -> implode('name', ', '),
+                'body' => $post -> body,
+                'slug' => $post -> slug,
+                'status' => $post -> status,
+            ]
+        ], 201);
     }
 }

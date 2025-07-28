@@ -24,7 +24,7 @@ class PostSeeder extends Seeder
         }
 
         // Criar 20 posts aleatórios
-        foreach (range(1, 20) as $i) {
+        foreach (range(1, 30) as $i) {
             Post::create([
                 'title' => 'Post ' . $i,
                 'body' => 'Conteúdo do post número ' . $i,

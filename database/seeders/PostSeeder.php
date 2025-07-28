@@ -24,204 +24,203 @@ class PostSeeder extends Seeder
         }
 
         $post1 = Post::create([
-            'title' => 'Trabalhando com PHP moderno e bancos de dados',
-            'body' => 'O PHP atual é uma linguagem robusta e moderna, capaz de lidar com aplicações complexas. Quando combinado com bancos de dados como MySQL, permite criar sistemas dinâmicos e seguros. Neste post, mostramos como usar PDO, proteger contra injeção SQL e estruturar consultas de forma eficiente.',
-            'cover' => 'https://example.com/php-mysql.jpg',
+            'title' => 'Review: Notebook Dell Inspiron para Desenvolvimento Web e Produtividade',
+            'body' => 'O Dell Inspiron se destaca como uma excelente opção para programadores. Com processador i7 e SSD veloz, ele proporciona um ambiente ágil para projetos PHP e web. O desempenho consistente contribui para uma rotina produtiva e fluida no desenvolvimento de aplicações.',
+            'cover' => 'https://example.com/images/notebook-dell.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '1'
         ]);
-        $post1->tags()->attach([1, 7]);
+        $post1->tags()->sync([1, 8, 10]);
 
         $post2 = Post::create([
-            'title' => 'Começando com Laravel: instalação e primeiros passos',
-            'body' => 'Laravel é um dos frameworks PHP mais usados no mundo. Neste guia, mostramos como instalar o Laravel com Composer, configurar o ambiente no XAMPP e iniciar seu primeiro projeto. Você verá como funciona a estrutura MVC e como criar suas primeiras rotas e controladores.',
-            'cover' => 'https://example.com/laravel-start.jpg',
+            'title' => 'Review: MacBook Pro M2 para Programadores Laravel',
+            'body' => 'O MacBook Pro M2 entrega performance de sobra para desenvolvedores Laravel. Sua combinação de hardware potente e sistema macOS otimizado facilita a execução de containers, testes e build de aplicações web, otimizando cada minuto da rotina de desenvolvimento.',
+            'cover' => 'https://example.com/images/macbook-m2.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '2'
         ]);
-        $post2->tags()->attach([2, 1]);
+        $post2->tags()->sync([2, 8, 10]);
 
         $post3 = Post::create([
-            'title' => 'Manipulando o DOM com JavaScript puro',
-            'body' => 'JavaScript permite interatividade direta no navegador. Um dos principais usos é a manipulação do DOM — a estrutura da página. Neste post, mostramos como selecionar elementos, responder a eventos e atualizar o conteúdo HTML dinamicamente, sem frameworks externos.',
-            'cover' => 'https://example.com/js-dom.jpg',
+            'title' => 'Avaliação: Tablet Samsung Tab S8 para Estudos de Desenvolvimento',
+            'body' => 'O Galaxy Tab S8 surpreende na fluidez e portabilidade para estudos em JavaScript, HTML e leitura técnica. Ideal para consumir conteúdos educacionais, acompanhar cursos e praticar códigos simples mesmo longe do desktop principal.',
+            'cover' => 'https://example.com/images/tablet-tab-s8.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '3'
         ]);
-        $post3->tags()->attach([3, 5]);
+        $post3->tags()->sync([3, 8, 10]);
 
         $post4 = Post::create([
-            'title' => 'TypeScript na prática: escrevendo código seguro em JavaScript',
-            'body' => 'TypeScript adiciona tipagem estática ao JavaScript, o que ajuda a evitar bugs e melhorar a produtividade. Neste artigo, você vai aprender como usar interfaces, tipos personalizados e integração com bibliotecas JS, além de configurar seu projeto com `tsconfig.json`.',
-            'cover' => 'https://example.com/ts-intro.jpg',
+            'title' => 'Notebook Lenovo: Ideal para Frontend e TypeScript',
+            'body' => 'O Lenovo IdeaPad apresenta ótimo desempenho para tarefas frontend. A tela de alta definição aliada ao bom tempo de resposta facilita o desenvolvimento com TypeScript, React e Vue, além de ser eficiente para revisões de código colaborativas.',
+            'cover' => 'https://example.com/images/lenovo-ideapad.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '4'
         ]);
-        $post4->tags()->attach([4, 3]);
+        $post4->tags()->sync([1, 9, 8, 10]);
 
         $post5 = Post::create([
-            'title' => 'HTML semântico: estrutura seu site corretamente',
-            'body' => 'Utilizar HTML semântico melhora a acessibilidade, SEO e manutenção do código. Neste post, mostramos como usar corretamente elementos como `<header>`, `<article>`, `<nav>`, além de dicas sobre estrutura lógica e validação do código.',
-            'cover' => 'https://example.com/html-semantico.jpg',
+            'title' => 'Monitor LG UltraWide: Visualize Mais, Produza Melhor',
+            'body' => 'O monitor LG UltraWide é perfeito para quem trabalha com múltiplas janelas. Durante testes com editores, navegadores e documentação lado a lado, o ganho de produtividade foi claro. A experiência visual melhora tanto o design quanto a codificação simultânea.',
+            'cover' => 'https://example.com/images/monitor-lg.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '5'
         ]);
-        $post5->tags()->attach([5, 6]);
+        $post5->tags()->sync([4, 8, 10]);
 
         $post6 = Post::create([
-            'title' => 'CSS moderno: flexbox, grid e responsividade',
-            'body' => 'Criar layouts responsivos nunca foi tão fácil com as ferramentas modernas do CSS. Neste artigo, explicamos como usar Flexbox para alinhamento, CSS Grid para estrutura e media queries para adaptar seu site a diferentes tamanhos de tela.',
-            'cover' => 'https://example.com/css-modern.jpg',
+            'title' => 'Redragon Kumara: O Teclado Ideal para Programadores',
+            'body' => 'Este teclado mecânico da Redragon oferece feedback preciso e excelente construção. Testado com IDEs, ambientes web e escrita de documentação, ele mostrou-se um grande aliado na produtividade diária de desenvolvedores frontend e backend.',
+            'cover' => 'https://example.com/images/teclado-kumara.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '6'
         ]);
-        $post6->tags()->attach([6, 5]);
+        $post6->tags()->sync([5, 8, 10]);
 
         $post7 = Post::create([
-            'title' => 'Consultas eficientes em MySQL com PHP',
-            'body' => 'A combinação de PHP com MySQL é amplamente utilizada no desenvolvimento web. Neste post, abordamos como otimizar consultas, usar joins com eficiência, e integrar as respostas do banco com scripts PHP usando mysqli ou PDO.',
-            'cover' => 'https://example.com/php-consultas.jpg',
+            'title' => 'SSD Kingston 480GB: Velocidade para o Seu Projeto Web',
+            'body' => 'Ao substituir um HD tradicional pelo SSD Kingston, o impacto nos tempos de compilação, inicialização de projetos Laravel e bancos locais foi notável. Mais velocidade = mais produtividade. Um dos upgrades mais acessíveis e eficazes para qualquer dev.',
+            'cover' => 'https://example.com/images/ssd-kingston.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '7'
         ]);
-        $post7->tags()->attach([7, 1]);
+        $post7->tags()->sync([6, 8, 10]);
 
         $post8 = Post::create([
-            'title' => 'Criando componentes reativos com React',
-            'body' => 'React é uma biblioteca poderosa para interfaces interativas. Aqui, mostramos como criar componentes reutilizáveis, usar hooks como useState e useEffect, e estruturar sua aplicação para facilitar manutenção e performance.',
-            'cover' => 'https://example.com/react-componentes.jpg',
+            'title' => 'Notebook Acer Aspire 5: Frontend com Alta Performance',
+            'body' => 'O Acer Aspire 5 entrega uma excelente performance para desenvolvedores frontend. Trabalhar com frameworks modernos como Vue, React e Tailwind foi fluido, com multitarefa eficiente, contribuindo diretamente para uma produção mais ágil.',
+            'cover' => 'https://example.com/images/acer-aspire5.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '8'
         ]);
-        $post8->tags()->attach([8, 3]);
+        $post8->tags()->sync([1, 9, 8, 10]);
 
         $post9 = Post::create([
-            'title' => 'Vue.js para iniciantes: diretivas e reatividade',
-            'body' => 'Vue.js oferece uma curva de aprendizado suave para quem está começando com frameworks JavaScript. Neste post, mostramos como usar diretivas como `v-if` e `v-for`, trabalhar com dados reativos e montar sua primeira aplicação Vue.',
-            'cover' => 'https://example.com/vue-basico.jpg',
+            'title' => 'ASUS VivoBook: Mobilidade e Eficiência para Frontend',
+            'body' => 'O VivoBook se provou uma ferramenta de trabalho competente. Ideal para quem precisa de mobilidade, ele roda tranquilamente stacks frontend modernas e suporta múltiplas abas de navegador, design e código, elevando a produtividade sem pesar no bolso.',
+            'cover' => 'https://example.com/images/asus-vivobook.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '9'
         ]);
-        $post9->tags()->attach([9, 5]);
+        $post9->tags()->sync([1, 9, 8, 10]);
 
         $post10 = Post::create([
-            'title' => 'Node.js: criando sua primeira API REST',
-            'body' => 'Node.js é ideal para construir APIs rápidas e escaláveis. Neste guia, criamos uma API REST do zero usando Express.js, com rotas, middlewares e conexão com banco de dados. Também mostramos como usar ferramentas como Postman para testar.',
-            'cover' => 'https://example.com/node-api.jpg',
+            'title' => 'Raspberry Pi 4: Protótipos e Automação na Palma da Mão',
+            'body' => 'O Raspberry Pi 4 é ideal para testes rápidos, automações e projetos IoT. Durante o uso em simulações de servidores locais e sensores web, ele mostrou-se confiável, versátil e altamente adaptável ao ciclo de vida de um desenvolvedor maker.',
+            'cover' => 'https://example.com/images/raspberry-pi-4.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '10'
         ]);
-        $post10->tags()->attach([10, 3]);
+        $post10->tags()->sync([7, 8, 10]);
 
         $post11 = Post::create([
-            'title' => 'Configurando ambiente PHP com CSS e Node.js',
-            'body' => 'Integrar PHP com tecnologias modernas como CSS e Node.js é essencial para aplicações web dinâmicas. Neste artigo, mostramos como configurar um ambiente de desenvolvimento completo, onde o PHP cuida do backend, o CSS estiliza o frontend e o Node.js pode ser usado para automações ou WebSocket.',
-            'cover' => 'https://example.com/dev-stack.jpg',
+            'title' => 'Teclado Logitech K380: Minimalismo e Conforto para Desenvolvedores',
+            'body' => 'Com um design compacto e teclas silenciosas, o Logitech K380 se adapta perfeitamente a ambientes de desenvolvimento mais discretos. Ideal para quem alterna entre dispositivos e precisa de um teclado confiável para longas sessões de codificação.',
+            'cover' => 'https://example.com/images/logitech-k380.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '11'
         ]);
-        $post11->tags()->attach([1, 6, 10]);
+        $post11->tags()->sync([5, 8, 10]);
 
         $post12 = Post::create([
-            'title' => 'Protegendo APIs com Laravel Sanctum e autenticação JWT',
-            'body' => 'Neste post você aprende a criar e proteger APIs usando Laravel Sanctum. Exploramos autenticação com tokens, configuração de rotas protegidas e como integrar com um frontend moderno, inclusive utilizando Node.js como consumidor das APIs.',
-            'cover' => 'https://example.com/laravel-api.jpg',
+            'title' => 'Tablet iPad Air M1: Leveza e Poder para Devs em Movimento',
+            'body' => 'Com o chip M1, o iPad Air se destaca não só em performance gráfica como também no suporte a ferramentas de produtividade e código em nuvem. Uma excelente escolha para desenvolvedores que precisam estudar, revisar pull requests ou escrever artigos técnicos fora do escritório.',
+            'cover' => 'https://example.com/images/ipad-air.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '12'
         ]);
-        $post12->tags()->attach([2, 1, 10]);
+        $post12->tags()->sync([3, 8, 10]);
 
         $post13 = Post::create([
-            'title' => 'Criando interfaces interativas com JavaScript, HTML e CSS',
-            'body' => 'Interfaces modernas precisam ser ágeis e intuitivas. Usando HTML, CSS e JavaScript, você pode construir interações ricas no navegador: animações com CSS, eventos com JS e uma estrutura clara com HTML semântico. Veja exemplos práticos neste post.',
-            'cover' => 'https://example.com/front-end-ui.jpg',
+            'title' => 'Monitor Dell 24”: Alta Definição para Codificação Prolongada',
+            'body' => 'O monitor Dell de 24 polegadas com painel IPS entrega imagens nítidas e cores precisas, o que ajuda no desenvolvimento frontend e na leitura prolongada de documentação. Um bom monitor é um investimento que preserva a saúde visual do desenvolvedor.',
+            'cover' => 'https://example.com/images/monitor-dell-24.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '13'
         ]);
-        $post13->tags()->attach([3, 6, 5]);
+        $post13->tags()->sync([4, 9, 8, 10]);
 
         $post14 = Post::create([
-            'title' => 'Criando uma aplicação escalável com TypeScript e Node.js',
-            'body' => 'Neste artigo, desenvolvemos uma aplicação backend completa utilizando TypeScript e Node.js. Você aprenderá a organizar o projeto com módulos, utilizar classes e interfaces, além de configurar o build com `tsc` e o deploy para produção.',
-            'cover' => 'https://example.com/ts-node.jpg',
+            'title' => 'SSD Crucial 1TB: Armazenamento Rápido para Grandes Projetos',
+            'body' => 'Projetos com múltiplos containers, bancos de dados locais e assets pesados exigem um bom SSD. O Crucial 1TB oferece velocidade de leitura e gravação excelentes, otimizando a experiência com Laravel, Docker e ferramentas de build modernas.',
+            'cover' => 'https://example.com/images/ssd-crucial.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '14'
         ]);
-        $post14->tags()->attach([4, 10, 3]);
+        $post14->tags()->sync([6, 8, 10]);
 
         $post15 = Post::create([
-            'title' => 'Melhorando a acessibilidade com HTML e CSS',
-            'body' => 'A acessibilidade é essencial para garantir que seu site possa ser utilizado por todos. Neste post, mostramos como aplicar práticas como uso correto de headings, contraste de cores com CSS, e navegação via teclado usando HTML semântico.',
-            'cover' => 'https://example.com/acessibilidade.jpg',
+            'title' => 'MacBook Air M1: Simplicidade com Potência para Desenvolvimento Web',
+            'body' => 'Leve e silencioso, o MacBook Air com chip M1 é mais do que suficiente para projetos web. Durante nossos testes com Laravel, NPM e Docker, o aparelho mostrou grande autonomia e desempenho, ideal para quem valoriza mobilidade e produtividade.',
+            'cover' => 'https://example.com/images/macbook-air.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '15'
         ]);
-        $post15->tags()->attach([5, 6]);
+        $post15->tags()->sync([2, 8, 10]);
 
         $post16 = Post::create([
-            'title' => 'Interatividade com CSS Grid e JavaScript',
-            'body' => 'Neste post, mostramos como usar CSS Grid para criar layouts complexos e adaptáveis, e como combinar isso com JavaScript para manipular elementos dinamicamente, ativando efeitos e interações em tempo real.',
-            'cover' => 'https://example.com/css-grid-js.jpg',
+            'title' => 'Notebook Samsung Book: Equilíbrio entre Custo e Desempenho',
+            'body' => 'Com um processador i5 e SSD de fábrica, o Samsung Book mostrou ótimo desempenho em projetos PHP e Node.js. Uma ótima escolha para estudantes e desenvolvedores em início de carreira que buscam performance sem extrapolar o orçamento.',
+            'cover' => 'https://example.com/images/samsung-book.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '16'
         ]);
-        $post16->tags()->attach([6, 3]);
+        $post16->tags()->sync([1, 8, 10]);
 
         $post17 = Post::create([
-            'title' => 'Modelagem de dados com Laravel e MySQL',
-            'body' => 'Aprenda como modelar seu banco de dados com Laravel usando Eloquent. Neste post mostramos como criar migrations, relacionamentos entre tabelas e executar consultas otimizadas no MySQL com o mínimo de código PHP.',
-            'cover' => 'https://example.com/modelagem.jpg',
+            'title' => 'Teclado Anne Pro 2: Mecânico, Compacto e Personalizável',
+            'body' => 'O Anne Pro 2 é um teclado compacto com switches Gateron que oferece uma digitação rápida e responsiva. Suas funções programáveis o tornam ideal para desenvolvedores que gostam de configurar atalhos e macros para aumentar a produtividade.',
+            'cover' => 'https://example.com/images/anne-pro2.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '17'
         ]);
-        $post17->tags()->attach([7, 1, 2]);
+        $post17->tags()->sync([5, 8, 10]);
 
         $post18 = Post::create([
-            'title' => 'Formulários inteligentes com React, HTML e JavaScript',
-            'body' => 'Neste post, construímos um formulário completo em React que valida dados em tempo real com JavaScript. Mostramos como usar `useState` para controle dos campos, aplicar validação HTML e criar feedback visual com CSS.',
-            'cover' => 'https://example.com/react-form.jpg',
+            'title' => 'Tablet Lenovo M10 Plus: Estudo e Leitura Técnica no Dia a Dia',
+            'body' => 'O M10 Plus é um tablet intermediário, mas muito útil para ler artigos, ebooks técnicos e até rodar apps de terminal remoto. Seu desempenho é adequado para tarefas leves e de apoio à rotina de quem estuda programação.',
+            'cover' => 'https://example.com/images/lenovo-m10.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '18'
         ]);
-        $post18->tags()->attach([8, 3, 5]);
+        $post18->tags()->sync([3, 10]);
 
         $post19 = Post::create([
-            'title' => 'Vue.js com Laravel: criando uma SPA completa',
-            'body' => 'Neste tutorial, integramos Vue.js ao backend Laravel para criar uma aplicação SPA. Usamos Vuex para gerenciamento de estado, axios para comunicação com APIs e mostramos como organizar os componentes e rotas do projeto.',
-            'cover' => 'https://example.com/vue-laravel.jpg',
+            'title' => 'Raspberry Pi 400: Um Computador na Forma de Teclado',
+            'body' => 'Com teclado embutido, o Raspberry Pi 400 é ideal para introdução à programação, servidores locais, automação residencial e ensino. Com suporte a Linux, Git e editores de código, ele surpreende pelo tamanho e funcionalidade.',
+            'cover' => 'https://example.com/images/raspberry-400.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '19'
         ]);
-        $post19->tags()->attach([9, 3, 2]);
+        $post19->tags()->sync([7, 8, 10]);
 
         $post20 = Post::create([
-            'title' => 'Deploy de aplicações Laravel com Node.js e MySQL',
-            'body' => 'Neste post, você verá como preparar sua aplicação Laravel para produção, configurar o banco MySQL e usar Node.js para executar scripts de build e deploy automatizado. Incluímos dicas de versionamento, envs e hospedagem.',
-            'cover' => 'https://example.com/deploy.jpg',
+            'title' => 'Monitor AOC 27” IPS: Amplo Espaço para Codar e Criar',
+            'body' => 'O monitor de 27 polegadas da AOC com painel IPS oferece excelente espaço de tela e fidelidade de cores. Perfeito para workflows com múltiplas IDEs, navegadores e design UI. A ergonomia da tela grande faz diferença no fim do dia.',
+            'cover' => 'https://example.com/images/monitor-aoc-27.jpg',
             'status' => 'PUBLISHED',
             'authorId' => 1,
             'slug' => '20'
         ]);
-        $post20->tags()->attach([10, 2, 7]);
-
+        $post20->tags()->sync([4, 8, 10]);
     }
 }

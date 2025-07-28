@@ -14,15 +14,15 @@ class TagSeeder extends Seeder
      */
     public function run(): void
     {
-        $tag1 = Tag::create(['name' => 'PHP (tag1)']);
-        $tag2 = Tag::create(['name' => 'Laravel (tag2)']);
-        $tag3 = Tag::create(['name' => 'JavaScript (tag3)']);
-        $tag4 = Tag::create(['name' => 'TypeScript (tag4)']);
-        $tag5 = Tag::create(['name' => 'HTML (tag5)']);
-        $tag6 = Tag::create(['name' => 'CSS (tag6)']);
-        $tag7 = Tag::create(['name' => 'MySQL (tag7)']);
-        $tag8 = Tag::create(['name' => 'React (tag8)']);
-        $tag9 = Tag::create(['name' => 'Vue.js (tag9)']);
-        $tag10 = Tag::create(['name' => 'Node.js (tag10)']);
+        $tag1 = Tag::create(['name' => 'Notebook']);
+        $tag2 = Tag::create(['name' => 'MacBook']);
+        $tag3 = Tag::create(['name' => 'Tablet']);
+        $tag4 = Tag::create(['name' => 'Monitor']);
+        $tag5 = Tag::create(['name' => 'Teclado']);
+        $tag6 = Tag::create(['name' => 'SSD']);
+        $tag7 = Tag::create(['name' => 'Raspberry Pi']);
+        $tag8 = Tag::create(['name' => 'Desenvolvimento Web']);
+        $tag9 = Tag::create(['name' => 'Frontend']);
+        $tag10 = Tag::create(['name' => 'Produtividade']);
     }
 }

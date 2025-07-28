@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('authorId')->constrained('users')->cascadeOnDelete();
             $table->string('title');
             $table->text('body');
-            $table->string('cover')->nullable();
             $table->timestamp('createdAt')->useCurrent();
             $table->timestamp('updatedAt')->useCurrentOnUpdate();
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT');

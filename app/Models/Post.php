@@ -16,7 +16,6 @@ class Post extends Model
         'authorId',
         'title',
         'body',
-        'cover',
         'status',
     ];
 

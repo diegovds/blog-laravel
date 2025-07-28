@@ -124,4 +124,43 @@ class AdminController extends Controller
             ]
         ], 201);
     }
+
+    public function updatePost(string $slug, Request $request) {
+        $user = $request -> user();
+
+        $post = Post::where(['slug' => $slug, 'authorId' => $user -> id]) -> first();
+
+        if (!$post) {
+            return response() -> json(['error' => '404 Not found'], 404);
+        }
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
+            'status' => 'required|in:PUBLISHED,DRAFT',
+            // 'tags' => 'string|max:255'
+        ]);
+
+        $post -> title = $request -> input('title');
+        $post -> body = $request -> input('body');
+        $post -> status = $request -> input('status');
+
+        // Gerar slug com base no title
+        $post -> slug = Str::slug($post -> title) . '-' . time();
+
+        $post -> update();
+
+        return response() -> json([
+            'post' => [
+                'id' => $post -> id,
+                'title' => $post -> title,
+                'createdAt' => $post -> createdAt,
+                'authorName' => $post -> author -> name,
+                'tags' => $post -> tags -> implode('name', ', '),
+                'body' => $post -> body,
+                'slug' => $post -> slug,
+                'status' => $post -> status,
+            ]
+        ], 201);
+    }
 }

@@ -23,16 +23,46 @@ class PostSeeder extends Seeder
             return;
         }
 
-        // Criar 20 posts aleatórios
-        foreach (range(1, 30) as $i) {
-            Post::create([
-                'title' => 'Post ' . $i,
-                'body' => 'Conteúdo do post número ' . $i,
-                'cover' => 'https://',
-                'status' => 'PUBLISHED',
-                'authorId' => 1,
-                'slug' =>  $i
-            ]);
-        }
+
+
+        $post1 = Post::create([
+            'title' => 'Post ' . 1,
+            'body' => 'Conteúdo do post número ' . 1,
+            'cover' => 'https://',
+            'status' => 'PUBLISHED',
+            'authorId' => 1,
+            'slug' =>  1
+        ]);
+        $post1 -> tags() -> attach([1, 2]);
+
+        $post2 = Post::create([
+            'title' => 'Post ' . 2,
+            'body' => 'Conteúdo do post número ' . 2,
+            'cover' => 'https://',
+            'status' => 'PUBLISHED',
+            'authorId' => 1,
+            'slug' =>  2
+        ]);
+        $post2 -> tags() -> attach([1, 3]);
+
+        $post3 = Post::create([
+            'title' => 'Post ' . 3,
+            'body' => 'Conteúdo do post número ' . 3,
+            'cover' => 'https://',
+            'status' => 'PUBLISHED',
+            'authorId' => 1,
+            'slug' =>  3
+        ]);
+        $post3 -> tags() -> attach([3, 4]);
+
+        $post4 = Post::create([
+            'title' => 'Post ' . 4,
+            'body' => 'Conteúdo do post número ' . 4,
+            'cover' => 'https://',
+            'status' => 'PUBLISHED',
+            'authorId' => 1,
+            'slug' =>  4
+        ]);
+        $post4 -> tags() -> attach([1, 2, 3, 4]);
     }
 }

@@ -47,7 +47,7 @@ class PostSeeder extends Seeder
             'title' => 'Avaliação: Tablet Samsung Tab S8 para Estudos de Desenvolvimento',
             'body' => 'O Galaxy Tab S8 surpreende na fluidez e portabilidade para estudos em JavaScript, HTML e leitura técnica. Ideal para consumir conteúdos educacionais, acompanhar cursos e praticar códigos simples mesmo longe do desktop principal.',
             'cover' => 'https://example.com/images/tablet-tab-s8.jpg',
-            'status' => 'PUBLISHED',
+            'status' => 'DRAFT',
             'authorId' => 1,
             'slug' => '3'
         ]);

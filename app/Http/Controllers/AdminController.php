@@ -36,4 +36,44 @@ class AdminController extends Controller
             'page' => $posts -> currentPage()
         ];
     }
+
+    public function getPost(string $slug, Request $request) {
+
+        $user = $request -> user();
+
+        $post = Post::where(['slug' => $slug, 'authorId' => $user -> id]) -> first();
+
+        if (!$post) {
+            return response() -> json(['error' => '404 Not found'], 404);
+        }
+
+        return [
+            'post' => [
+                'id' => $post -> id,
+                'title' => $post -> title,
+                'createdAt' => $post -> created_at,
+                'cover' => $post -> cover,
+                'authorName' => $post -> author -> name,
+                'tags' => $post -> tags -> implode('name', ', '),
+                'body' => $post -> body,
+                'slug' => $post -> slug,
+                'status' => $post -> status,
+            ]
+        ];
+    }
+
+    public function deletePost(string $slug, Request $request) {
+
+        $user = $request -> user();
+
+        $post = Post::where(['slug' => $slug, 'authorId' => $user -> id]) -> first();
+
+        if (!$post) {
+            return response() -> json(['error' => '404 Not found'], 404);
+        }
+
+        $post -> delete();
+
+        return response() -> json(['message' => 'Post deleted successfully'], 200);
+    }
 }

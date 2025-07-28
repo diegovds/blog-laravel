@@ -28,8 +28,6 @@ class PostController extends Controller
             ];
         }
 
-
-
         return [
             'posts' => $pagesPosts,
             'page' => $posts -> currentPage()

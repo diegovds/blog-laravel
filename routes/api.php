@@ -16,7 +16,7 @@ Route::get('/user', function (Request $request) {
 Route::prefix('auth') -> group(function () {
     Route::post('/signup', [AuthController::class, 'signup']);
     Route::post('/signin', [AuthController::class, 'signin']);
-    Route::post('/validate', [AuthController::class, 'validate']) -> middleware('auth:sanctum');
+    Route::get('/validate', [AuthController::class, 'validate']) -> middleware('auth:sanctum');
 });
 
 // Rotas públicas

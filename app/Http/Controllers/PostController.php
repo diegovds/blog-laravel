@@ -11,7 +11,9 @@ class PostController extends Controller
 
         $posts_per_page = 10;
 
-        $posts = Post::where('status', 'PUBLISHED') -> paginate($posts_per_page);
+        $posts = Post::where('status', 'PUBLISHED')
+             ->latest()
+             ->paginate($posts_per_page);
 
         $pagesPosts = [];
 
@@ -19,7 +21,7 @@ class PostController extends Controller
             $pagesPosts[] = [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> createdAt,
+                'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,
@@ -45,7 +47,7 @@ class PostController extends Controller
             'post' => [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> createdAt,
+                'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,
@@ -80,7 +82,7 @@ class PostController extends Controller
             return [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> createdAt,
+                'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,

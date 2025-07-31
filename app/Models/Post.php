@@ -8,9 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends Model
 {
-    const UPDATED_AT = 'updatedAt';
-    const CREATED_AT = 'createdAt';
-
     protected $fillable = [
         'slug',
         'authorId',

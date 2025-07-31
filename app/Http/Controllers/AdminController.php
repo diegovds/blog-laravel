@@ -15,7 +15,9 @@ class AdminController extends Controller
 
         $posts_per_page = 10;
 
-        $posts = Post::where('authorId', $user -> id) -> paginate($posts_per_page);
+        $posts = Post::where('authorId', $user -> id)
+            ->latest()
+            ->paginate($posts_per_page);
 
         $pagesPosts = [];
 
@@ -23,7 +25,7 @@ class AdminController extends Controller
             $pagesPosts[] = [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> createdAt,
+                'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,
@@ -52,7 +54,7 @@ class AdminController extends Controller
             'post' => [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> createdAt,
+                'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,
@@ -91,6 +93,8 @@ class AdminController extends Controller
 
         if (!$request -> has('status')) {
             $post -> status = 'DRAFT';
+        } else {
+            $post -> status = $request -> input('status');
         }
 
         $post -> title = $request -> input('title');
@@ -115,7 +119,7 @@ class AdminController extends Controller
             'post' => [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> createdAt,
+                'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,
@@ -154,7 +158,7 @@ class AdminController extends Controller
             'post' => [
                 'id' => $post -> id,
                 'title' => $post -> title,
-                'createdAt' => $post -> createdAt,
+                'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
                 'body' => $post -> body,

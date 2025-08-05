@@ -114,7 +114,7 @@ class AdminController extends Controller
                 return response()->json(['error' => 'Invalid file'], 422);
             }
 
-            if(!in_array($file->getClientOriginalExtension(), ['jpg', 'png', 'gif'])){
+            if(!in_array($file->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'gif'])){
                 return response()->json(['error' => 'Invalid file type'], 422);
             }
 

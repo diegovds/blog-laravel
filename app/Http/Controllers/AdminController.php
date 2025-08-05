@@ -28,6 +28,7 @@ class AdminController extends Controller
                 'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
+                'cover' => $post -> cover,
                 'body' => $post -> body,
                 'slug' => $post -> slug,
                 'status' => $post -> status,
@@ -57,6 +58,7 @@ class AdminController extends Controller
                 'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
+                'cover' => $post -> cover,
                 'body' => $post -> body,
                 'slug' => $post -> slug,
                 'status' => $post -> status,
@@ -104,6 +106,24 @@ class AdminController extends Controller
         // Gerar slug com base no title
         $post -> slug = Str::slug($post -> title) . '-' . time();
 
+        // Manipulação da imagem
+        if ($request->hasFile('cover')){
+            $file = $request->file('cover');
+
+            if(!$file->isValid()){
+                return response()->json(['error' => 'Invalid file'], 422);
+            }
+
+            if(!in_array($file->getClientOriginalExtension(), ['jpg', 'png', 'gif'])){
+                return response()->json(['error' => 'Invalid file type'], 422);
+            }
+
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $filename);
+
+            $post -> cover = env('APP_URL') . '/uploads/' . $filename;
+        }
+
         $post -> save();
 
         if($request -> has('tags')) {
@@ -122,6 +142,7 @@ class AdminController extends Controller
                 'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
+                'cover' => $post -> cover,
                 'body' => $post -> body,
                 'slug' => $post -> slug,
                 'status' => $post -> status,
@@ -161,6 +182,7 @@ class AdminController extends Controller
                 'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
+                'cover' => $post -> cover,
                 'body' => $post -> body,
                 'slug' => $post -> slug,
                 'status' => $post -> status,

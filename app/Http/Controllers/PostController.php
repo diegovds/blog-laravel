@@ -24,6 +24,7 @@ class PostController extends Controller
                 'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
+                'cover' => $post -> cover,
                 'body' => $post -> body,
                 'slug' => $post -> slug,
             ];
@@ -50,6 +51,7 @@ class PostController extends Controller
                 'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
+                'cover' => $post -> cover,
                 'body' => $post -> body,
                 'slug' => $post -> slug,
             ]
@@ -85,6 +87,7 @@ class PostController extends Controller
                 'created_at' => $post -> created_at,
                 'authorName' => $post -> author -> name,
                 'tags' => $post -> tags -> implode('name', ', '),
+                'cover' => $post -> cover,
                 'body' => $post -> body,
                 'slug' => $post -> slug,
             ];

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->foreignId('authorId')->constrained('users')->cascadeOnDelete();
+            $table->string('cover')->nullable();
             $table->string('title');
             $table->text('body');
             $table->timestamp('created_at')->useCurrent();

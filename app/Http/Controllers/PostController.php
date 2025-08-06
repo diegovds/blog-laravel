@@ -77,6 +77,7 @@ class PostController extends Controller
                 // Vamos filtrar os posts que possuem alguma das tags
                 $query -> whereIn('tags.id', $tagsList) -> where('posts.status', 'PUBLISHED');
             })
+            ->latest()
             -> limit(5)
             -> get();
 

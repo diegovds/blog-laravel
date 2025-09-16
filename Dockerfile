@@ -1,7 +1,7 @@
 # Imagem oficial PHP com FPM
 FROM php:8.2-fpm
 
-# Adicionar repositório PostgreSQL oficial e instalar dependências
+# Instalar dependências do sistema + cliente PostgreSQL
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     unzip \
@@ -12,9 +12,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libsqlite3-dev \
     build-essential \
     libonig-dev \
-    lsb-release \
     gnupg \
-    && sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' \
+    && echo "deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
     && curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
     && apt-get update \
     && apt-get install -y libpq-dev postgresql-client \

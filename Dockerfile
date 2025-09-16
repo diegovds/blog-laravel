@@ -10,13 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     sqlite3 \
     libsqlite3-dev \
-    build-essential \
-    libonig-dev \
-    gnupg \
-    && echo "deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
-    && curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
-    && apt-get update \
-    && apt-get install -y libpq-dev postgresql-client \
+    libpq-dev \
+    postgresql-client \
     && docker-php-ext-install pdo pdo_pgsql pdo_sqlite zip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
